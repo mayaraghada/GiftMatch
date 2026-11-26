@@ -1,0 +1,23 @@
+<section id="cadeaux">
+  <h2 class="section-title">Cadeaux les plus pertinents</h2>
+  <p class="section-subtitle">Nos idées coups de cœur</p>
+
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  }
+
+  <div class="gift-grid">
+    @for (gift of gifts(); track gift.id) {
+      <div class="gift-card">
+        <img [src]="gift.image" [alt]="gift.name">
+        <div class="gift-body">
+          <span class="badge">{{ gift.category }}</span>
+          <h3>{{ gift.name }}</h3>
+          <p class="price">{{ gift.price }} DT</p>
+          <p class="desc">{{ gift.description }}</p>
+          <p class="why">🎯 {{ gift.occasion }} · {{ gift.interest }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

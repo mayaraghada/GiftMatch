@@ -1,0 +1,33 @@
+<div class="login-page">
+  <h2>🔐 Connexion administrateur</h2>
+  <p class="hint">Réservé à l'équipe GiftMatch.</p>
+
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+
+    <div class="field">
+      <label for="username">Identifiant</label>
+      <input id="username" name="username" type="text"
+             [(ngModel)]="username" #usernameField="ngModel" required>
+      @if (usernameField.invalid && (usernameField.touched || loginForm.submitted)) {
+        <small class="field-error">L'identifiant est obligatoire.</small>
+      }
+    </div>
+
+    <div class="field">
+      <label for="password">Mot de passe</label>
+      <input id="password" name="password" type="password"
+             [(ngModel)]="password" #passwordField="ngModel" required>
+      @if (passwordField.invalid && (passwordField.touched || loginForm.submitted)) {
+        <small class="field-error">Le mot de passe est obligatoire.</small>
+      }
+    </div>
+
+    @if (errorMessage) {
+      <p class="login-error">{{ errorMessage }}</p>
+    }
+
+    <button type="submit" class="btn">Se connecter</button>
+  </form>
+
+  <a routerLink="/" class="back">← Retour à l'accueil</a>
+</div>

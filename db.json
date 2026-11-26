@@ -1,0 +1,103 @@
+{
+  "gifts": [
+    {
+      "id": 1,
+      "name": "Casque Bluetooth",
+      "category": "Technologie",
+      "price": 80,
+      "occasion": "Anniversaire",
+      "age": "18-30",
+      "interest": "Musique",
+      "description": "Un casque Bluetooth pratique pour écouter de la musique.",
+      "image": "images/casque.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Montre connectée",
+      "category": "Technologie",
+      "price": 120,
+      "occasion": "Anniversaire",
+      "age": "18-30",
+      "interest": "Sport",
+      "description": "Une montre qui suit vos activités sportives et vos notifications.",
+      "image": "images/montre.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Coffret de soins visage",
+      "category": "Beauté",
+      "price": 45,
+      "occasion": "Fête des mères",
+      "age": "30-60",
+      "interest": "Bien-être",
+      "description": "Un coffret de produits doux pour prendre soin de sa peau.",
+      "image": "images/soins.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Bougie parfumée",
+      "category": "Maison",
+      "price": 25,
+      "occasion": "Pendaison de crémaillère",
+      "age": "18-60",
+      "interest": "Décoration",
+      "description": "Une bougie au parfum vanille pour une ambiance chaleureuse.",
+      "image": "images/bougie.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Roman best-seller",
+      "category": "Livres",
+      "price": 30,
+      "occasion": "Anniversaire",
+      "age": "18-60",
+      "interest": "Lecture",
+      "description": "Un roman captivant pour les amoureux de lecture.",
+      "image": "images/livre.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Tapis de yoga",
+      "category": "Sport",
+      "price": 55,
+      "occasion": "Anniversaire",
+      "age": "18-45",
+      "interest": "Sport",
+      "description": "Un tapis antidérapant, idéal pour le yoga et les étirements.",
+      "image": "images/yoga.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Écharpe en laine",
+      "category": "Mode",
+      "price": 35,
+      "occasion": "Noël",
+      "age": "12-60",
+      "interest": "Mode",
+      "description": "Une écharpe douce et élégante pour l'hiver.",
+      "image": "images/echarpe.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Jeu de société",
+      "category": "Loisirs",
+      "price": 40,
+      "occasion": "Noël",
+      "age": "8-60",
+      "interest": "Jeux",
+      "description": "Un jeu amusant à partager en famille ou entre amis.",
+      "image": "images/jeu.jpg"
+    },
+    {
+      "name": "Enceinte Bluetooth portable",
+      "category": "Technologie",
+      "price": 95,
+      "occasion": "Anniversiare",
+      "age": "15-40",
+      "interest": "Musique",
+      "description": "Une enceinte étanche au son puissant, parfaite pour la plage et les fêtes.",
+      "image": "images/enceinte.jpg",
+      "id": 9
+    }
+  ]
+}

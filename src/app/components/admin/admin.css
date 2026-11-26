@@ -1,0 +1,177 @@
+.admin-page {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-header h2 {
+  margin: 0;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.btn-logout,
+.btn-cancel {
+  background: transparent;
+  border: 2px solid #ccc;
+  color: #666;
+  padding: 8px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.btn-logout:hover,
+.btn-cancel:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.success {
+  padding: 12px;
+  background: #e6f7ec;
+  color: #1e7a3c;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.error {
+  padding: 12px;
+  background: #fdecea;
+  color: #c0392b;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* ---------- Formulaire ---------- */
+.gift-form {
+  margin: 25px 0;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.field-error {
+  color: #c0392b;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* ---------- Tableau ---------- */
+.table-wrapper {
+  margin-top: 25px;
+  overflow-x: auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: var(--light);
+  color: var(--primary);
+}
+
+td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #eee;
+}
+
+td.desc {
+  max-width: 250px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.row-actions {
+  white-space: nowrap;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  transform: scale(1.2);
+}

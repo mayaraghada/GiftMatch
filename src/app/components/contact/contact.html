@@ -1,0 +1,43 @@
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contactez-nous</h2>
+  <p class="section-subtitle">Une question ? Écrivez-nous</p>
+
+  @if (sent) {
+    <p class="success">✅ Merci ! Votre message a bien été envoyé.</p>
+  }
+
+  <form class="contact-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+
+    <div class="field">
+      <label for="name">Nom</label>
+      <input id="name" name="name" type="text" placeholder="Votre nom"
+             [(ngModel)]="name" #nameField="ngModel"
+             required minlength="2">
+      @if (nameField.invalid && (nameField.dirty || nameField.touched || contactForm.submitted)) {
+        <small class="field-error">Le nom est obligatoire (2 caractères minimum).</small>
+      }
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="vous@exemple.com"
+             [(ngModel)]="email" #emailField="ngModel"
+             required email>
+      @if (emailField.invalid && (emailField.dirty || emailField.touched || contactForm.submitted)) {
+        <small class="field-error">Veuillez saisir un email valide.</small>
+      }
+    </div>
+
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Votre message..."
+                [(ngModel)]="message" #messageField="ngModel"
+                required minlength="10"></textarea>
+      @if (messageField.invalid && (messageField.dirty || messageField.touched || contactForm.submitted)) {
+        <small class="field-error">Le message est obligatoire (10 caractères minimum).</small>
+      }
+    </div>
+
+    <button type="submit" class="btn">✉️ Envoyer</button>
+  </form>
+</section>

@@ -1,0 +1,67 @@
+<section id="trouver">
+  <h2 class="section-title">Trouver un cadeau</h2>
+  <p class="section-subtitle">Indiquez au moins un critère, on s'occupe du reste</p>
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <form class="search-form" (ngSubmit)="search()">
+    <div class="field">
+      <label for="occasion">Occasion</label>
+      <select id="occasion" name="occasion" [(ngModel)]="occasion">
+        <option value="">Toutes</option>
+        @for (o of occasions; track o) {
+          <option [value]="o">{{ o }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="age">Âge de la personne</label>
+      <input id="age" name="age" type="number" min="0" placeholder="Ex : 25" [(ngModel)]="age">
+    </div>
+
+    <div class="field">
+      <label for="budget">Budget maximum (DT)</label>
+      <input id="budget" name="budget" type="number" min="0" placeholder="Ex : 60" [(ngModel)]="budget">
+    </div>
+
+    <div class="field">
+      <label for="interest">Centre d'intérêt</label>
+      <input id="interest" name="interest" type="text" placeholder="Ex : Sport" [(ngModel)]="interest">
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn">🔍 Rechercher</button>
+      <button type="button" class="btn-reset" (click)="reset()">Réinitialiser</button>
+    </div>
+
+    @if (formError) {
+      <p class="form-error">{{ formError }}</p>
+    }
+  </form>
+
+  @if (searched) {
+    <h3 class="results-title">{{ results.length }} idée(s) trouvée(s)</h3>
+
+    @if (results.length === 0) {
+      <p class="empty">Aucun cadeau ne correspond. Essayez d'élargir vos critères. 🙂</p>
+    }
+
+    <div class="gift-grid">
+      @for (gift of results; track gift.id) {
+        <div class="gift-card">
+          <img [src]="gift.image" [alt]="gift.name">
+          <div class="gift-body">
+            <span class="badge">{{ gift.category }}</span>
+            <h3>{{ gift.name }}</h3>
+            <p class="price">{{ gift.price }} DT</p>
+            <p class="desc">{{ gift.description }}</p>
+            <p class="why">🎯 {{ gift.occasion }} · {{ gift.interest }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</section>

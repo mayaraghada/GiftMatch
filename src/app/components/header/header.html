@@ -1,0 +1,18 @@
+<header class="navbar">
+  <a href="#accueil" class="logo">🎁 GiftMatch</a>
+
+  <!-- Bouton ☰ visible seulement sur téléphone -->
+  <button class="burger" (click)="toggleMenu()">☰</button>
+
+  <!-- [class.open] : la classe "open" est ajoutée si menuOpen vaut true -->
+  <nav class="menu" [class.open]="menuOpen">
+    <a href="#accueil" (click)="closeMenu()">Accueil</a>
+    <a href="#cadeaux" (click)="closeMenu()">Cadeaux</a>
+    <a href="#categories" (click)="closeMenu()">Catégories</a>
+    <a href="#trouver" (click)="closeMenu()">Trouver un cadeau</a>
+    <a href="#contact" (click)="closeMenu()">Contact</a>
+  </nav>
+
+  
+  <button class="btn-admin" routerLink="/login">Admin</button>
+</header>

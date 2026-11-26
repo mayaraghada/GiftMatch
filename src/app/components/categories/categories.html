@@ -1,0 +1,14 @@
+<section id="categories" class="bg">
+  <h2 class="section-title">Catégories</h2>
+  <p class="section-subtitle">Explorez les cadeaux par univers</p>
+
+  <div class="grid">
+    @for (cat of categories; track cat.name) { <!--track : identifiant unique de chaque élément-->
+      <div class="card">
+        <span class="icon">{{ cat.icon }}</span>
+        <h3>{{ cat.name }}</h3>
+      </div>
+    }
+
+  </div>
+</section>

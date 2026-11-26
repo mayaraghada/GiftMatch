@@ -1,0 +1,147 @@
+<div class="admin-page">
+  <div class="admin-header">
+    <h2>⚙️ Gestion des cadeaux</h2>
+    <div class="admin-actions">
+      <a routerLink="/" class="link">← Accueil</a>
+      <button class="btn-logout" (click)="logout()">Déconnexion</button>
+    </div>
+  </div>
+
+  @if (message) {
+    <p class="success">{{ message }}</p>
+  }
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <button class="btn" (click)="startAdd()">➕ Ajouter un cadeau</button>
+
+  <!-- Formulaire ajout / modification -->
+  @if (showForm) {
+    <form class="gift-form" #f="ngForm" (ngSubmit)="save(f)" novalidate>
+      <h3>{{ editing ? 'Modifier le cadeau' : 'Ajouter un cadeau' }}</h3>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Nom</label>
+          <input id="name" name="name" type="text" [(ngModel)]="giftForm.name"
+                 #nameF="ngModel" required minlength="2">
+          @if (nameF.invalid && (nameF.touched || f.submitted)) {
+            <small class="field-error">Nom obligatoire (2 caractères minimum).</small>
+          }
+        </div>
+
+        <div class="field">
+          <label for="category">Catégorie</label>
+          <select id="category" name="category" [(ngModel)]="giftForm.category"
+                  #catF="ngModel" required>
+            <option value="">-- Choisir --</option>
+            @for (c of categories; track c) {
+              <option [value]="c">{{ c }}</option>
+            }
+          </select>
+          @if (catF.invalid && (catF.touched || f.submitted)) {
+            <small class="field-error">Catégorie obligatoire.</small>
+          }
+        </div>
+
+        <div class="field">
+          <label for="price">Prix (DT)</label>
+          <input id="price" name="price" type="number" [(ngModel)]="giftForm.price"
+                 #priceF="ngModel" required min="1">
+          @if (priceF.invalid && (priceF.touched || f.submitted)) {
+            <small class="field-error">Prix obligatoire (supérieur à 0).</small>
+          }
+        </div>
+
+        <div class="field">
+          <label for="occasion">Occasion</label>
+          <input id="occasion" name="occasion" type="text" [(ngModel)]="giftForm.occasion"
+                 #occF="ngModel" required>
+          @if (occF.invalid && (occF.touched || f.submitted)) {
+            <small class="field-error">Occasion obligatoire.</small>
+          }
+        </div>
+
+        <div class="field">
+          <label for="age">Âge (ex : 18-30)</label>
+          <input id="age" name="age" type="text" [(ngModel)]="giftForm.age"
+                 #ageF="ngModel" required pattern="^[0-9]+-[0-9]+$">
+          @if (ageF.invalid && (ageF.touched || f.submitted)) {
+            <small class="field-error">Format attendu : 18-30.</small>
+          }
+        </div>
+
+        <div class="field">
+          <label for="interest">Centre d'intérêt</label>
+          <input id="interest" name="interest" type="text" [(ngModel)]="giftForm.interest"
+                 #intF="ngModel" required>
+          @if (intF.invalid && (intF.touched || f.submitted)) {
+            <small class="field-error">Centre d'intérêt obligatoire.</small>
+          }
+        </div>
+
+        <div class="field full">
+          <label for="image">Image (ex : images/casque.jpg)</label>
+          <input id="image" name="image" type="text" [(ngModel)]="giftForm.image">
+        </div>
+
+        <div class="field full">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3"
+                    [(ngModel)]="giftForm.description" #descF="ngModel"
+                    required minlength="10"></textarea>
+          @if (descF.invalid && (descF.touched || f.submitted)) {
+            <small class="field-error">Description obligatoire (10 caractères minimum).</small>
+          }
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">{{ editing ? 'Enregistrer' : 'Ajouter' }}</button>
+        <button type="button" class="btn-cancel" (click)="cancel()">Annuler</button>
+      </div>
+    </form>
+  }
+
+  <!-- Tableau -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Nom</th>
+          <th>Catégorie</th>
+          <th>Prix</th>
+          <th>Occasion</th>
+          <th>Âge</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (gift of gifts; track gift.id) {
+          <tr>
+            <td>{{ gift.id }}</td>
+            <td><img [src]="gift.image" [alt]="gift.name"></td>
+            <td>{{ gift.name }}</td>
+            <td>{{ gift.category }}</td>
+            <td>{{ gift.price }} DT</td>
+            <td>{{ gift.occasion }}</td>
+            <td>{{ gift.age }}</td>
+            <td class="desc">{{ gift.description }}</td>
+            <td class="row-actions">
+              <button class="btn-edit" (click)="startEdit(gift)">✏️</button>
+              <button class="btn-delete" (click)="remove(gift)">🗑️</button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="9">Aucun cadeau.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
