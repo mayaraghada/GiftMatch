@@ -81,23 +81,146 @@
       "id": 8,
       "name": "Jeu de société",
       "category": "Loisirs",
-      "price": 40,
+      "price": 50,
       "occasion": "Noël",
       "age": "8-60",
       "interest": "Jeux",
       "description": "Un jeu amusant à partager en famille ou entre amis.",
       "image": "images/jeu.jpg"
     },
+
     {
+      "id": 9,
       "name": "Enceinte Bluetooth portable",
       "category": "Technologie",
       "price": 95,
-      "occasion": "Anniversiare",
+      "occasion": "Anniversaire",
       "age": "15-40",
       "interest": "Musique",
       "description": "Une enceinte étanche au son puissant, parfaite pour la plage et les fêtes.",
-      "image": "images/enceinte.jpg",
-      "id": 9
+      "image": "images/enceinte.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Clavier mécanique",
+      "category": "Technologie",
+      "price": 110,
+      "occasion": "Noël",
+      "age": "15-35",
+      "interest": "Informatique",
+      "description": "Un clavier rétroéclairé confortable pour travailler ou jouer pendant des heures.",
+      "image": "images/clavier.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Sac à main en cuir",
+      "category": "Mode",
+      "price": 150,
+      "occasion": "Fête des mères",
+      "age": "25-60",
+      "interest": "Mode",
+      "description": "Un sac élégant et spacieux en cuir, qui se porte avec toutes les tenues.",
+      "image": "images/sac.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Montre classique",
+      "category": "Mode",
+      "price": 130,
+      "occasion": "Anniversaire",
+      "age": "20-60",
+      "interest": "Mode",
+      "description": "Une montre au design intemporel avec un bracelet en métal brossé.",
+      "image": "images/montre-classique.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Parfum floral",
+      "category": "Beauté",
+      "price": 85,
+      "occasion": "Fête des mères",
+      "age": "25-65",
+      "interest": "Parfums",
+      "description": "Un parfum frais aux notes de jasmin et de rose, délicat et durable.",
+      "image": "images/parfum.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Palette de maquillage",
+      "category": "Beauté",
+      "price": 60,
+      "occasion": "Anniversaire",
+      "age": "16-35",
+      "interest": "Maquillage",
+      "description": "Une palette de 18 couleurs pour créer des looks de jour comme de soirée.",
+      "image": "images/palette.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Plaid en coton doux",
+      "category": "Maison",
+      "price": 50,
+      "occasion": "Pendaison de crémaillère",
+      "age": "18-70",
+      "interest": "Décoration",
+      "description": "Un grand plaid moelleux pour rendre le canapé encore plus accueillant.",
+      "image": "images/plaid.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Set de cuisine en bois",
+      "category": "Maison",
+      "price": 45,
+      "occasion": "Pendaison de crémaillère",
+      "age": "20-65",
+      "interest": "Cuisine",
+      "description": "Un ensemble de 6 ustensiles en bois, solides et agréables à utiliser.",
+      "image": "images/cuisine.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Puzzle 1000 pièces",
+      "category": "Loisirs",
+      "price": 35,
+      "occasion": "Noël",
+      "age": "10-70",
+      "interest": "Jeux",
+      "description": "Un puzzle de paysage à assembler seul ou en famille pour de longues soirées.",
+      "image": "images/puzzle.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Kit de peinture créative",
+      "category": "Loisirs",
+      "price": 40,
+      "occasion": "Anniversaire",
+      "age": "8-40",
+      "interest": "Dessin",
+      "description": "Un coffret avec pinceaux, couleurs et toiles pour débuter la peinture.",
+      "image": "images/peinture.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Livre de cuisine illustré",
+      "category": "Livres",
+      "price": 38,
+      "occasion": "Fête des mères",
+      "age": "20-70",
+      "interest": "Cuisine",
+      "description": "Plus de 100 recettes faciles avec de belles photos étape par étape.",
+      "image": "images/livre-cuisine.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Haltères réglables",
+      "category": "Sport",
+      "price": 70,
+      "occasion": "Noël",
+      "age": "16-50",
+      "interest": "Sport",
+      "description": "Une paire d'haltères à poids ajustable pour s'entraîner à la maison.",
+      "image": "images/halteres.jpg"
     }
+
   ]
 }
