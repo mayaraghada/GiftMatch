@@ -26,7 +26,7 @@
       "id": 3,
       "name": "Coffret de soins visage",
       "category": "Beauté",
-      "price": 45,
+      "price": 40,
       "occasion": "Fête des mères",
       "age": "30-60",
       "interest": "Bien-être",
@@ -88,7 +88,6 @@
       "description": "Un jeu amusant à partager en famille ou entre amis.",
       "image": "images/jeu.jpg"
     },
-
     {
       "id": 9,
       "name": "Enceinte Bluetooth portable",
@@ -220,7 +219,226 @@
       "interest": "Sport",
       "description": "Une paire d'haltères à poids ajustable pour s'entraîner à la maison.",
       "image": "images/halteres.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Souris sans fil gaming",
+      "category": "Technologie",
+      "price": 45,
+      "occasion": "Anniversaire",
+      "age": "12-35",
+      "interest": "Informatique",
+      "description": "Une souris précise et ergonomique, avec des boutons programmables.",
+      "image": "images/souris.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Batterie externe 20000 mAh",
+      "category": "Technologie",
+      "price": 60,
+      "occasion": "Noël",
+      "age": "15-60",
+      "interest": "Informatique",
+      "description": "Une batterie portable qui recharge un téléphone plusieurs fois.",
+      "image": "images/powerbank.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Écouteurs sans fil",
+      "category": "Technologie",
+      "price": 100,
+      "occasion": "Anniversaire",
+      "age": "15-40",
+      "interest": "Musique",
+      "description": "Des écouteurs compacts avec boîtier de charge et réduction de bruit.",
+      "image": "images/ecouteurs.jpg"
+    },
+    {
+      "id": 24,
+      "name": "Lampe LED de bureau",
+      "category": "Technologie",
+      "price": 55,
+      "occasion": "Pendaison de crémaillère",
+      "age": "15-50",
+      "interest": "Décoration",
+      "description": "Une lampe design à intensité réglable, idéale pour étudier ou travailler.",
+      "image": "images/lampe.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Pull en laine épais",
+      "category": "Mode",
+      "price": 75,
+      "occasion": "Noël",
+      "age": "18-60",
+      "interest": "Mode",
+      "description": "Un pull chaud et confortable, parfait pour les journées d'hiver.",
+      "image": "images/pull.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Lunettes de soleil",
+      "category": "Mode",
+      "price": 65,
+      "occasion": "Anniversaire",
+      "age": "16-50",
+      "interest": "Mode",
+      "description": "Des lunettes tendance avec protection UV pour toute la saison.",
+      "image": "images/lunettes.jpg"
+    },
+    {
+      "id": 27,
+      "name": "Portefeuille en cuir",
+      "category": "Mode",
+      "price": 55,
+      "occasion": "Anniversaire",
+      "age": "18-60",
+      "interest": "Mode",
+      "description": "Un portefeuille fin et solide avec plusieurs compartiments pour les cartes.",
+      "image": "images/portefeuille.jpg"
+    },
+    {
+      "id": 28,
+      "name": "Crème hydratante bio",
+      "category": "Beauté",
+      "price": 35,
+      "occasion": "Fête des mères",
+      "age": "25-70",
+      "interest": "Bien-être",
+      "description": "Une crème douce aux ingrédients naturels qui nourrit la peau toute la journée.",
+      "image": "images/creme.jpg"
+    },
+    {
+      "id": 29,
+      "name": "Set de pinceaux maquillage",
+      "category": "Beauté",
+      "price": 40,
+      "occasion": "Noël",
+      "age": "16-45",
+      "interest": "Maquillage",
+      "description": "Un kit de 12 pinceaux souples pour un maquillage net et facile.",
+      "image": "images/pinceaux.jpg"
+    },
+    {
+      "id": 30,
+      "name": "Diffuseur d'huiles essentielles",
+      "category": "Maison",
+      "price": 48,
+      "occasion": "Pendaison de crémaillère",
+      "age": "20-65",
+      "interest": "Bien-être",
+      "description": "Un diffuseur silencieux qui parfume la maison et apporte de la détente.",
+      "image": "images/diffuseur.jpg"
+    },
+    {
+      "id": 31,
+      "name": "Vase en céramique",
+      "category": "Maison",
+      "price": 42,
+      "occasion": "Pendaison de crémaillère",
+      "age": "22-70",
+      "interest": "Décoration",
+      "description": "Un vase artisanal aux formes douces, qui embellit un salon ou une entrée.",
+      "image": "images/vase.jpg"
+    },
+    {
+      "id": 32,
+      "name": "Cadre photo en bois",
+      "category": "Maison",
+      "price": 28,
+      "occasion": "Fête des mères",
+      "age": "18-80",
+      "interest": "Décoration",
+      "description": "Un cadre simple et chaleureux pour garder un beau souvenir en famille.",
+      "image": "images/cadre.jpg"
+    },
+    {
+      "id": 33,
+      "name": "Jeu de cartes familial",
+      "category": "Loisirs",
+      "price": 15,
+      "occasion": "Noël",
+      "age": "7-70",
+      "interest": "Jeux",
+      "description": "Un jeu de cartes rapide et amusant pour les soirées entre amis ou en famille.",
+      "image": "images/cartes.jpg"
+    },
+    {
+      "id": 34,
+      "name": "Carnet de dessin et crayons",
+      "category": "Loisirs",
+      "price": 32,
+      "occasion": "Anniversaire",
+      "age": "8-45",
+      "interest": "Dessin",
+      "description": "Un carnet à grain fin avec un set de crayons de couleur pour dessiner partout.",
+      "image": "images/carnet.jpg"
+    },
+    {
+      "id": 35,
+      "name": "Ukulélé débutant",
+      "category": "Loisirs",
+      "price": 85,
+      "occasion": "Anniversaire",
+      "age": "10-50",
+      "interest": "Musique",
+      "description": "Un petit instrument facile à apprendre, livré avec housse et accordeur.",
+      "image": "images/ukulele.jpg"
+    },
+    {
+      "id": 36,
+      "name": "Livre de développement personnel",
+      "category": "Livres",
+      "price": 28,
+      "occasion": "Anniversaire",
+      "age": "20-60",
+      "interest": "Lecture",
+      "description": "Un livre inspirant avec des conseils simples pour mieux s'organiser et avancer.",
+      "image": "images/livre-dev.jpg"
+    },
+    {
+      "id": 37,
+      "name": "Coffret bandes dessinées",
+      "category": "Livres",
+      "price": 25,
+      "occasion": "Noël",
+      "age": "10-40",
+      "interest": "Lecture",
+      "description": "Un coffret de trois bandes dessinées pleines d'humour et d'aventure.",
+      "image": "images/bd.jpg"
+    },
+    {
+      "id": 38,
+      "name": "Gourde isotherme",
+      "category": "Sport",
+      "price": 30,
+      "occasion": "Anniversaire",
+      "age": "14-50",
+      "interest": "Sport",
+      "description": "Une gourde en acier qui garde les boissons fraîches ou chaudes longtemps.",
+      "image": "images/gourde.jpg"
+    },
+    {
+      "id": 39,
+      "name": "Ballon de football",
+      "category": "Sport",
+      "price": 40,
+      "occasion": "Anniversaire",
+      "age": "8-40",
+      "interest": "Sport",
+      "description": "Un ballon résistant, adapté aux matchs entre amis sur tous les terrains.",
+      "image": "images/ballon.jpg"
+    },
+    {
+      "id": 40,
+      "name": "Set de bandes de résistance",
+      "category": "Sport",
+      "price": 35,
+      "occasion": "Noël",
+      "age": "18-55",
+      "interest": "Sport",
+      "description": "Cinq bandes élastiques de force différente pour s'entraîner partout.",
+      "image": "images/bandes.jpg"
     }
-
   ]
 }

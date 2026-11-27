@@ -1,4 +1,6 @@
 <div class="admin-page">
+
+  <!-- En-tête -->
   <div class="admin-header">
     <h2>⚙️ Gestion des cadeaux</h2>
     <div class="admin-actions">
@@ -7,18 +9,20 @@
     </div>
   </div>
 
-  @if (message) {
-    <p class="success">{{ message }}</p>
+  <!-- Messages -->
+  @if (message()) {
+    <p class="success">{{ message() }}</p>
   }
-  @if (errorMessage) {
-    <p class="error">{{ errorMessage }}</p>
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
   }
 
+  <!-- Bouton Ajouter -->
   <button class="btn" (click)="startAdd()">➕ Ajouter un cadeau</button>
 
   <!-- Formulaire ajout / modification -->
   @if (showForm) {
-    <form class="gift-form" #f="ngForm" (ngSubmit)="save(f)" novalidate>
+    <form class="gift-form" id="gift-form" #f="ngForm" (ngSubmit)="save(f)" novalidate>
       <h3>{{ editing ? 'Modifier le cadeau' : 'Ajouter un cadeau' }}</h3>
 
       <div class="form-grid">
@@ -56,8 +60,13 @@
 
         <div class="field">
           <label for="occasion">Occasion</label>
-          <input id="occasion" name="occasion" type="text" [(ngModel)]="giftForm.occasion"
-                 #occF="ngModel" required>
+          <select id="occasion" name="occasion" [(ngModel)]="giftForm.occasion"
+                  #occF="ngModel" required>
+            <option value="">-- Choisir --</option>
+            @for (o of occasions; track o) {
+              <option [value]="o">{{ o }}</option>
+            }
+          </select>
           @if (occF.invalid && (occF.touched || f.submitted)) {
             <small class="field-error">Occasion obligatoire.</small>
           }
@@ -74,8 +83,13 @@
 
         <div class="field">
           <label for="interest">Centre d'intérêt</label>
-          <input id="interest" name="interest" type="text" [(ngModel)]="giftForm.interest"
-                 #intF="ngModel" required>
+          <select id="interest" name="interest" [(ngModel)]="giftForm.interest"
+                  #intF="ngModel" required>
+            <option value="">-- Choisir --</option>
+            @for (i of interests; track i) {
+              <option [value]="i">{{ i }}</option>
+            }
+          </select>
           @if (intF.invalid && (intF.touched || f.submitted)) {
             <small class="field-error">Centre d'intérêt obligatoire.</small>
           }
@@ -104,6 +118,18 @@
     </form>
   }
 
+  <!-- Filtre : au-dessus du tableau, à droite -->
+  <div class="filters">
+    <select name="selectedCategory"
+            [value]="selectedCategory()"
+            (change)="onCategoryChange($any($event.target).value)">
+      <option value="">-- Toutes les catégories --</option>
+      @for (c of categories; track c) {
+        <option [value]="c">{{ c }}</option>
+      }
+    </select>
+  </div>
+
   <!-- Tableau -->
   <div class="table-wrapper">
     <table>
@@ -121,7 +147,7 @@
         </tr>
       </thead>
       <tbody>
-        @for (gift of gifts; track gift.id) {
+        @for (gift of filteredGifts(); track gift.id) {
           <tr>
             <td>{{ gift.id }}</td>
             <td><img [src]="gift.image" [alt]="gift.name"></td>
@@ -133,7 +159,7 @@
             <td class="desc">{{ gift.description }}</td>
             <td class="row-actions">
               <button class="btn-edit" (click)="startEdit(gift)">✏️</button>
-              <button class="btn-delete" (click)="remove(gift)">🗑️</button>
+              <button class="btn-delete" (click)="askDelete(gift)">🗑️</button>
             </td>
           </tr>
         } @empty {
@@ -144,4 +170,21 @@
       </tbody>
     </table>
   </div>
+
+  <!-- Fenêtre de confirmation de suppression -->
+  @if (giftToDelete()) {
+    <div class="modal-backdrop" (click)="cancelDelete()">
+      <div class="modal" (click)="$event.stopPropagation()">
+        <div class="modal-icon">🗑️</div>
+        <h3>Supprimer ce cadeau ?</h3>
+        <p>Vous allez supprimer <strong>{{ giftToDelete()?.name }}</strong>.<br>
+           Cette action est définitive.</p>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" (click)="cancelDelete()">Annuler</button>
+          <button type="button" class="btn-danger" (click)="confirmDelete()">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  }
+
 </div>

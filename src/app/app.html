@@ -1,1 +1,5 @@
 <router-outlet></router-outlet>
+
+@if (showScrollTop()) {
+  <button class="scroll-top" (click)="scrollToTop()" aria-label="Retour en haut">↑</button>
+}

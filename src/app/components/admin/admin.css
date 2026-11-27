@@ -1,7 +1,9 @@
 .admin-page {
+  width: 100%;
   max-width: 1200px;
   margin: 30px auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .admin-header {
@@ -67,6 +69,7 @@
   background: white;
   border-radius: 16px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  scroll-margin-top: 20px;
 }
 
 .form-grid {
@@ -118,9 +121,21 @@ textarea:focus {
   margin-top: 20px;
 }
 
+/* ---------- Filtre (au-dessus du tableau, à droite) ---------- */
+.filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  max-width: 100%;
+}
+
 /* ---------- Tableau ---------- */
 .table-wrapper {
-  margin-top: 25px;
+  width: 100%;
   overflow-x: auto;
   background: white;
   border-radius: 16px;
@@ -129,6 +144,7 @@ textarea:focus {
 
 table {
   width: 100%;
+  min-width: 900px;
   border-collapse: collapse;
 }
 
@@ -137,6 +153,10 @@ td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #eee;
+}
+
+td:nth-child(7) {
+  white-space: nowrap;
 }
 
 th {
@@ -174,4 +194,61 @@ td.desc {
 .btn-edit:hover,
 .btn-delete:hover {
   transform: scale(1.2);
+}
+
+
+/* ---------- Fenêtre de confirmation ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;                              /* couvre tout l'écran */
+  background: rgba(45, 42, 62, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-icon {
+  font-size: 2.5rem;
+}
+
+.modal h3 {
+  margin: 10px 0;
+  color: var(--dark);
+}
+
+.modal p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-danger {
+  background: #e63e3e;
+  color: white;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: #c92d2d;
 }

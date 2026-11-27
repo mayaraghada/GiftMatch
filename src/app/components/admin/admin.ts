@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth';
@@ -12,14 +12,25 @@ import { Gift } from '../../models/gift';
   styleUrl: './admin.css'
 })
 export class Admin implements OnInit {
-  gifts: Gift[] = [];
-  categories = ['Technologie', 'Mode', 'Beauté', 'Maison', 'Loisirs', 'Livres', 'Sport'];
+  // Signaux : pilotent l'affichage
+  gifts = signal<Gift[]>([]);
+  message = signal('');
+  errorMessage = signal('');
+  selectedCategory = signal('');
+  giftToDelete = signal<Gift | null>(null);
 
-  giftForm: Gift = this.emptyGift();   // le cadeau en cours d'édition
-  editing = false;                     // false = ajout, true = modification
-  showForm = false;                    // formulaire visible ou non
-  message = '';
-  errorMessage = '';
+  // Listes des menus déroulants
+  categories = ['Technologie', 'Mode', 'Beauté', 'Maison', 'Loisirs', 'Livres', 'Sport'];
+  occasions = ['Anniversaire', 'Fête des mères', 'Pendaison de crémaillère', 'Noël'];
+  interests = [
+    'Musique', 'Sport', 'Informatique', 'Mode', 'Bien-être', 'Parfums',
+    'Maquillage', 'Décoration', 'Cuisine', 'Lecture', 'Jeux', 'Dessin'
+  ];
+
+  // Formulaire
+  giftForm: Gift = this.emptyGift();
+  editing = false;
+  showForm = false;
 
   constructor(
     private auth: AuthService,
@@ -44,32 +55,55 @@ export class Admin implements OnInit {
     };
   }
 
-  // READ
+  // ---------- READ ----------
   loadGifts() {
     this.giftService.getGifts().subscribe({
       next: (data) => {
-        this.gifts = data;
+        this.gifts.set(data);
       },
       error: () => {
-        this.errorMessage = "Impossible de charger les cadeaux. L'API est-elle lancée ?";
+        this.errorMessage.set("Impossible de charger les cadeaux. L'API est-elle lancée ?");
       }
     });
   }
 
-  // Ouvrir le formulaire en mode ajout
+  // ---------- FILTRE ----------
+  filteredGifts(): Gift[] {
+    const cat = this.selectedCategory();
+    if (cat === '') {
+      return this.gifts();
+    }
+    return this.gifts().filter(gift => gift.category === cat);
+  }
+
+  onCategoryChange(value: string) {
+    this.selectedCategory.set(value);
+  }
+
+  // ---------- FORMULAIRE ----------
   startAdd() {
     this.giftForm = this.emptyGift();
     this.editing = false;
     this.showForm = true;
-    this.message = '';
+    this.message.set('');
+    this.scrollToForm();
   }
 
-  // Ouvrir le formulaire en mode modification
   startEdit(gift: Gift) {
-    this.giftForm = { ...gift };    // copie : on ne modifie pas le tableau directement
+    this.giftForm = { ...gift };
     this.editing = true;
     this.showForm = true;
-    this.message = '';
+    this.message.set('');
+    this.scrollToForm();
+  }
+
+  private scrollToForm() {
+    setTimeout(() => {
+      document.getElementById('gift-form')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 0);
   }
 
   cancel() {
@@ -77,7 +111,7 @@ export class Admin implements OnInit {
     this.giftForm = this.emptyGift();
   }
 
-  // CREATE ou UPDATE
+  // ---------- CREATE / UPDATE ----------
   save(form: NgForm) {
     if (form.invalid) {
       return;
@@ -86,50 +120,62 @@ export class Admin implements OnInit {
     if (this.editing) {
       this.giftService.updateGift(this.giftForm).subscribe({
         next: () => {
-          this.message = '✅ Cadeau modifié.';
+          this.message.set('✅ Cadeau modifié.');
           this.afterSave();
         },
         error: () => {
-          this.errorMessage = 'Erreur lors de la modification.';
+          this.errorMessage.set('Erreur lors de la modification.');
         }
       });
     } else {
       this.giftService.addGift(this.giftForm).subscribe({
         next: () => {
-          this.message = '✅ Cadeau ajouté.';
+          this.message.set('✅ Cadeau ajouté.');
           this.afterSave();
         },
         error: () => {
-          this.errorMessage = "Erreur lors de l'ajout.";
+          this.errorMessage.set("Erreur lors de l'ajout.");
         }
       });
     }
   }
 
   private afterSave() {
-    this.errorMessage = '';
+    this.errorMessage.set('');
     this.showForm = false;
     this.giftForm = this.emptyGift();
     this.loadGifts();
   }
 
-  // DELETE
-  remove(gift: Gift) {
-    if (!confirm(`Supprimer « ${gift.name} » ?`)) {
+  // ---------- DELETE ----------
+  askDelete(gift: Gift) {
+    this.giftToDelete.set(gift);
+  }
+
+  cancelDelete() {
+    this.giftToDelete.set(null);
+  }
+
+  confirmDelete() {
+    const gift = this.giftToDelete();
+    if (!gift) {
       return;
     }
+    this.giftToDelete.set(null);
+
     this.giftService.deleteGift(gift.id!).subscribe({
       next: () => {
-        this.message = '🗑️ Cadeau supprimé.';
-        this.errorMessage = '';
+        this.message.set('🗑️ Cadeau supprimé.');
+        this.errorMessage.set('');
         this.loadGifts();
       },
       error: () => {
-        this.errorMessage = 'Erreur lors de la suppression.';
+        this.errorMessage.set('Erreur lors de la suppression.');
       }
     });
   }
 
+  // ---------- DÉCONNEXION ----------
   logout() {
     this.auth.logout();
     this.router.navigate(['/login']);

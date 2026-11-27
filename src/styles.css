@@ -54,3 +54,12 @@ section {
 .btn:hover {
   background: var(--primary-dark);
 }
+
+app-admin {
+  display: block;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private readonly USERNAME = 'admin';
-  private readonly PASSWORD = 'admin123';
+  private readonly PASSWORD = 'admingiftmatch123';
   private readonly KEY = 'giftmatch_admin';
 
   // Renvoie true si les identifiants sont corrects
